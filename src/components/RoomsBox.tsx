@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { AppContext } from '@/stores/Provider';
@@ -7,6 +7,7 @@ import { AppContext } from '@/stores/Provider';
 interface IProduct {
   item: any;
 }
+
 export default function RoomsBox({ item }: IProduct) {
   const { store, setStore } = useContext(AppContext);
 
@@ -19,6 +20,7 @@ export default function RoomsBox({ item }: IProduct) {
     });
     setStore('showData', x);
   };
+
   return (
     <div
       className={`${item.color} flex items-center justify-between space-x-3 rounded-3xl bg-opacity-10 p-4`}
@@ -32,7 +34,7 @@ export default function RoomsBox({ item }: IProduct) {
               src={item.srcPic}
               alt={''}
               width="0"
-              height={'0'}
+              height="0"
               sizes="100vw"
             />
           </div>

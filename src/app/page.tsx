@@ -20,7 +20,7 @@ export default function Home() {
       title: 'Living Room',
       devices: 7,
       active: false,
-      srcPic: '//livingroom.png',
+      srcPic: 'livingroom.png',
       color: 'bg-red-500'
     },
     {
@@ -28,7 +28,7 @@ export default function Home() {
       title: 'Bed Room',
       devices: 3,
       active: false,
-      srcPic: '//bedroom.png',
+      srcPic: 'bedroom.png',
       color: 'bg-blue-500'
     },
     {
@@ -36,7 +36,7 @@ export default function Home() {
       title: 'Bath Room',
       devices: 2,
       active: false,
-      srcPic: '//bathroom.png',
+      srcPic: 'bathroom.png',
       color: 'bg-yellow-500'
     }
   ];
@@ -50,6 +50,33 @@ export default function Home() {
     }
     setAdd(false);
   };
+
+  //FIXME:
+  const getInfo = async () => {
+    const today = new Date();
+    const date = `${today.getDate()} ${today.toLocaleString('default', {
+      month: 'long'
+    })} ${today.getFullYear()}`;
+
+    try {
+      const apiKey = process.env.WEATHER_API_KEY;
+      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      const temperature = `${Math.round(data.main.temp)}°C`;
+
+      const weatherDiv = document.getElementById('weather');
+      weatherDiv.innerHTML = `
+        <div class="flex flex-col space-y-6 whitespace-nowrap text-white">
+          <span class="font-semibold">${date}</span>
+          <span class="text-7xl font-bold">${temperature}</span>
+        </div>
+      `;
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  getInfo();
 
   return (
     <div className="px-6">
@@ -95,8 +122,8 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col py-7">
-        <span className="text-3xl font-bold">Hello, youtube</span>
-        <span className="font-medium">Wellcome back to your home</span>
+        <span className="text-3xl font-bold">Hello, Roomy!</span>
+        <span className="font-medium">Welcome back to your home</span>
       </div>
       <div className="flex h-auto w-full justify-between rounded-2xl border bg-gradient-to-r from-blue-500 to-blue-400 p-6 shadow-[0px_10px_30px_rgba(3,138,255,0.4)]">
         <div className="flex flex-col items-center space-y-3">
@@ -112,10 +139,10 @@ export default function Home() {
           <span className="text-xl font-semibold text-white">Cloudy</span>
         </div>
         <div className="border" />
+        {/* <div id="weather"></div> */}
         <div className="flex flex-col space-y-6 whitespace-nowrap text-white ">
-          {/* TODO: add date getter */}
-          <span className="font-semibold">10 January 2022</span>
-          <span className="text-7xl font-bold">27°</span>
+          <span className="font-semibold">27 July 2023</span>
+          <span className="text-7xl font-bold">17°</span>
         </div>
       </div>
       <div className="flex justify-between py-6">
