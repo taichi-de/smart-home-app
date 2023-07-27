@@ -18,7 +18,7 @@ export default function Home() {
       title: 'Living Room',
       devices: 7,
       active: false,
-      srcPic: '/images/livingroom.png',
+      srcPic: '/livingroom.png',
       color: 'bg-red-500'
     },
     {
@@ -26,7 +26,7 @@ export default function Home() {
       title: 'Bed Room',
       devices: 3,
       active: false,
-      srcPic: '/images/bedroom.png',
+      srcPic: '/bedroom.png',
       color: 'bg-blue-500'
     },
     {
@@ -34,7 +34,7 @@ export default function Home() {
       title: 'Bath Room',
       devices: 2,
       active: false,
-      srcPic: '/images/bathroom.png',
+      srcPic: '/bathroom.png',
       color: 'bg-yellow-500'
     }
   ];
