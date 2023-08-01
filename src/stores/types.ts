@@ -1,6 +1,12 @@
 export interface IState {
-  // showData?: [];
-  showData: any;
+  showData: Array<{
+    id: number;
+    title: string;
+    devices: number;
+    active: boolean;
+    srcPic: string;
+    color: string;
+  }>;
   notif: boolean;
 }
 

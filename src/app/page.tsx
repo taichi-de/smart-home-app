@@ -52,31 +52,31 @@ export default function Home() {
   };
 
   //FIXME:
-  const getInfo = async () => {
-    const today = new Date();
-    const date = `${today.getDate()} ${today.toLocaleString('default', {
-      month: 'long'
-    })} ${today.getFullYear()}`;
+  // const getInfo = async () => {
+  //   const today = new Date();
+  //   const date = `${today.getDate()} ${today.toLocaleString('default', {
+  //     month: 'long'
+  //   })} ${today.getFullYear()}`;
 
-    try {
-      const apiKey = process.env.WEATHER_API_KEY;
-      const url = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      const temperature = `${Math.round(data.main.temp)}°C`;
+  //   try {
+  //     const apiKey = process.env.WEATHER_API_KEY;
+  //     const url = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=${apiKey}`;
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     const temperature = `${Math.round(data.main.temp)}°C`;
 
-      const weatherDiv = document.getElementById('weather');
-      weatherDiv.innerHTML = `
-        <div class="flex flex-col space-y-6 whitespace-nowrap text-white">
-          <span class="font-semibold">${date}</span>
-          <span class="text-7xl font-bold">${temperature}</span>
-        </div>
-      `;
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  getInfo();
+  //     const weatherDiv = document.getElementById('weather');
+  //     weatherDiv.innerHTML = `
+  //       <div class="flex flex-col space-y-6 whitespace-nowrap text-white">
+  //         <span class="font-semibold">${date}</span>
+  //         <span class="text-7xl font-bold">${temperature}</span>
+  //       </div>
+  //     `;
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+  // getInfo();
 
   return (
     <div className="px-6">
@@ -133,14 +133,14 @@ export default function Home() {
             src={pic1}
             alt={''}
             width="0"
-            height={'0'}
+            height="0"
             sizes="100vw"
           />
           <span className="text-xl font-semibold text-white">Cloudy</span>
         </div>
         <div className="border" />
         {/* <div id="weather"></div> */}
-        <div className="flex flex-col space-y-6 whitespace-nowrap text-white ">
+        <div className="flex flex-col space-y-6 whitespace-nowrap text-white">
           <span className="font-semibold">27 July 2023</span>
           <span className="text-7xl font-bold">17°</span>
         </div>
@@ -155,7 +155,8 @@ export default function Home() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            strokeWidth="1.5"
+            stroke="currentColor"
             className="h-5 w-5 stroke-green-700"
           >
             <path

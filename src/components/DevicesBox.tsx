@@ -21,7 +21,7 @@ export default function DevicesBox(item: IProduct) {
           src={item.srcIcon}
           alt={''}
           width="0"
-          height={'0'}
+          height="0"
           sizes="100vw"
         />
       </div>
